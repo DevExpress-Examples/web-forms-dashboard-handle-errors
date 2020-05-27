@@ -10,8 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <dx:ASPxDashboard ID="ASPxDashboard1" runat="server">
+        <div style="position: absolute; top: 0; bottom: 0; right: 0; left: 0">
+            <dx:ASPxDashboard ID="ASPxDashboard1" runat="server" Height="100%" Width="100%">
             </dx:ASPxDashboard>
         </div>
     </form>

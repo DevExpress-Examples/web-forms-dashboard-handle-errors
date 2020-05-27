@@ -19,26 +19,22 @@ namespace WebFormsDashboardCallbackError {
         }
 
         protected void Page_Load(object sender, EventArgs e) {
-            ASPxDashboard1.UseDashboardConfigurator = true;
-
-            DashboardFileStorage dashboardStorage = new DashboardFileStorage(Server.MapPath("~/App_Data/Dashboards"));
             DataSourceInMemoryStorage dataSourceStrorage = new DataSourceInMemoryStorage();
 
             DashboardSqlDataSource sql = new DashboardSqlDataSource("sql");
             sql.Queries.Add(SelectQueryFluentBuilder.AddTable("Products").SelectAllColumns().Build("query"));
             dataSourceStrorage.RegisterDataSource(sql.SaveToXml());
 
-            DashboardConfigurator.Default.SetDashboardStorage(dashboardStorage);
-            DashboardConfigurator.Default.SetDataSourceStorage(dataSourceStrorage);
-            DashboardConfigurator.Default.ConfigureDataConnection += ASPxDashboard1_ConfigureDataConnection;
-
+            ASPxDashboard1.SetDashboardStorage(new DashboardFileStorage(Server.MapPath("~/App_Data/Dashboards")));
+            ASPxDashboard1.SetDataSourceStorage(dataSourceStrorage);
+            ASPxDashboard1.ConfigureDataConnection += ASPxDashboard1_ConfigureDataConnection;
         }
 
         void ASPxDashboard1_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e) {
             // Invalid connection parameters:
             switch (e.DataSourceName) {
                 case "sql":
-                    e.ConnectionParameters = new MsSqlConnectionParameters(@"teamdashboard\sql2008", "Northwind123", null, null, MsSqlAuthorizationType.Windows);
+                    e.ConnectionParameters = new MsSqlConnectionParameters(@"localhost", "Northwind123", null, null, MsSqlAuthorizationType.Windows);
                     break;
             }
         }
