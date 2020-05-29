@@ -19,3 +19,17 @@ static void ASPxWebControl_CallbackError(object sender, EventArgs e) {
 	ASPxWebControl.SetCallbackErrorMessage(isCustomErrorsEnabled ? "Custom exception text for end users" : "Custom exception text for developers");
 }
 ```
+
+## Documentation
+
+- [Error Logging in Web Dashboard](https://docs.devexpress.com/Dashboard/400015/web-dashboard/error-logging)
+
+## More Examples
+
+- [ASP.NET Web Forms Dashboard - How to throw a custom exception (ASPxWebControl.CallbackError)](https://github.com/DevExpress-Examples/asp-net-web-forms-dashboard-throw-custom-exception-callback-error)
+- [ASP.NET MVC Dashboard - How to specify custom exception text (ASPxWebControl.CallbackError)](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-change-default-error-text-callback-error)
+- [ASP.NET MVC Dashboard - How to specify custom exception text (OnException)](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-change-default-error-text-onException)
+- [ASP.NET MVC Dashboard - How to throw a custom exception (ASPxWebControl.CallbackError)](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-throw-custom-exception-callback-error)
+- [ASP.NET MVC Dashboard - How to throw a custom exception](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-throw-custom-exception-override-on-exception)
+- [ASP.NET Core Dashboard - How to specify custom exception text](https://github.com/DevExpress-Examples/asp-net-core-dashboard-change-default-error-text-exception-filter)
+- [ASP.NET Core Dashboard - How to throw a custom exception](https://github.com/DevExpress-Examples/asp-net-core-dashboard-throw-custom-exception)
