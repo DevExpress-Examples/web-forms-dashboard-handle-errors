@@ -14,7 +14,7 @@ The following example demostrates two approaches on how to handle errors in the 
 
 The dashboard in this project contains invalid data connection. This example shows how to use the [ASPxWebControl.CallbackError](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxWebControl.CallbackError) event to override the default text in the exception. The exception occurs when a control tries to load data.
 
-![](image/web-exception-on-data-loading.png)
+![](image/web-custom-text-for-internal-dashboard-errors.png)
 
 Handle the `ASPxWebControl.CallbackError` event and specify the callback error message. The displayed text depends on whether the application is in development mode:
 
@@ -36,7 +36,7 @@ static void ASPxWebControl_CallbackError(object sender, EventArgs e) {
 
 This example shows how to throw a custom exception when a control loads a dashboard. This example uses the [ASPxWebControl.CallbackError](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxWebControl.CallbackError) event. The [ASPxWebControl.SetCallbackErrorMessage](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxWebControl.SetCallbackErrorMessage(System.String)) method specifies the message text to be displayed for remote clients when a DevExpress control callback error has occurred.
 
-![](image/web-exception-on-loading-a-dashboard.png)
+![](image/web-throw-custom-exception-dashboard-toast.png)
 
 Handle the `ASPxWebControl.CallbackError` event and specify the callback error message. The displayed text depends on whether the application is in development mode:
 
