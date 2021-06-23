@@ -1,4 +1,4 @@
-# ASP.NET Web Forms Dashboard - How to handle errors
+# Dashboard for Web Forms - How to handle errors
 
 The following example demostrates two approaches on how to handle errors in the ASP.NET Web Forms Dashboard application:
 
