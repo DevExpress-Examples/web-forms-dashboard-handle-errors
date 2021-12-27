@@ -23,7 +23,7 @@ Namespace WebFormsCustomTextForInternalDashboardErrors
 		Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
 			Dim dataSourceStrorage As New DataSourceInMemoryStorage()
 
-			Dim sql As New DashboardSqlDataSource("sql")
+			Dim sql As New DashboardSqlDataSource("sql", "sqlConn")
 			sql.Queries.Add(SelectQueryFluentBuilder.AddTable("Products").SelectAllColumns().Build("query"))
 			dataSourceStrorage.RegisterDataSource(sql.SaveToXml())
 
@@ -34,8 +34,8 @@ Namespace WebFormsCustomTextForInternalDashboardErrors
 
 		Private Sub ASPxDashboard1_ConfigureDataConnection(ByVal sender As Object, ByVal e As ConfigureDataConnectionWebEventArgs)
 			' Invalid connection parameters:
-			Select Case e.DataSourceName
-				Case "sql"
+			Select Case e.ConnectionName
+				Case "sqlConn"
 					e.ConnectionParameters = New MsSqlConnectionParameters("localhost", "Northwind123", Nothing, Nothing, MsSqlAuthorizationType.Windows)
 			End Select
 		End Sub

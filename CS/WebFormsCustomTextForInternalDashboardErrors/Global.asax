@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="WebFormsCustomTextForInternalDashboardErrors" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="WebFormsCustomTextForInternalDashboardErrors.Global" Language="C#" %>
