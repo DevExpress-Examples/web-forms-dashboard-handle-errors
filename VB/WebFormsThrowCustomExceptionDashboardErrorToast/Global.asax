@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.vb" Inherits="WebFormsThrowCustomExceptionDashboardErrorToast.Global" Language="vb" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="WebFormsThrowCustomExceptionDashboardErrorToast.Global" Language="C#" %>
