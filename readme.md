@@ -12,66 +12,32 @@ The following example demostrates two approaches on how to handle errors in the 
 
 ## How to specify custom text for internal Dashboard errors
 
-<!-- default file list -->
-*Files to look at*:
+### Files to Review
+
 * [WebForm1.aspx.cs](./CS/WebFormsCustomTextForInternalDashboardErrors/WebForm1.aspx.cs) (VB: [WebForm1.aspx.cs](./VB/WebFormsCustomTextForInternalDashboardErrors/WebForm1.aspx.vb))
-<!-- default file list end -->
+
+## Description
 
 The dashboard in this project contains invalid data connection. This example shows how to use the [ASPxWebControl.CallbackError](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxWebControl.CallbackError) event to override the default text in the exception. The exception occurs when a control tries to load data.
 
 ![](image/web-custom-text-for-internal-dashboard-errors.png)
 
-Handle the `ASPxWebControl.CallbackError` event and specify the callback error message. The displayed text depends on whether the application is in development mode:
-
-```cs
-static void ASPxWebControl_CallbackError(object sender, EventArgs e) {
-	HttpServerUtility server = HttpContext.Current.Server;
-	Exception exception = server.GetLastError();  
-	bool isCustomErrorsEnabled = HttpContext.Current != null ? HttpContext.Current.IsCustomErrorEnabled : true;
-	ASPxWebControl.SetCallbackErrorMessage(isCustomErrorsEnabled ? "Custom exception text for end users" : "Custom exception text for developers");
-}
-```
+Handle the `ASPxWebControl.CallbackError` event and specify the callback error message. You can specify the displayed text depending on whether the application is in development mode.
 
 ## How to throw a custom exception during a server-side processing and display the error in the Dashboard error toast
 
-<!-- default file list -->
-*Files to look at*:
+### Files to Review
+
 * [WebForm1.aspx.cs](./CS/WebFormsThrowCustomExceptionDashboardErrorToast/WebForm1.aspx.cs) (VB: [WebForm1.aspx.cs](./VB/WebFormsThrowCustomExceptionDashboardErrorToast/WebForm1.aspx.vb))
-<!-- default file list end -->
+
+## Description
 
 This example shows how to throw a custom exception when a control loads a dashboard. This example uses the [ASPxWebControl.CallbackError](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxWebControl.CallbackError) event. The [ASPxWebControl.SetCallbackErrorMessage](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxWebControl.SetCallbackErrorMessage(System.String)) method specifies the message text to be displayed for remote clients when a DevExpress control callback error has occurred.
 
 ![](image/web-throw-custom-exception-dashboard-toast.png)
 
-Handle the `ASPxWebControl.CallbackError` event and specify the callback error message. The displayed text depends on whether the application is in development mode:
-
-```cs
-static void ASPxWebControl_CallbackError(object sender, EventArgs e) {
-	HttpServerUtility server = HttpContext.Current.Server;
-	Exception exception = server.GetLastError();
-	bool isCustomErrorsEnabled = HttpContext.Current != null ? HttpContext.Current.IsCustomErrorEnabled : true;
-	CustomException customException = exception as CustomException;
-	string message = customException != null ? (isCustomErrorsEnabled ? CustomException.SafeMessage : CustomException.UnsafeMessage) : "";
-	ASPxWebControl.SetCallbackErrorMessage(message);
-}
-```
-
-To throw an exception when the control loads a dashboard, create custom dashboard storage and override the `LoadDashboard` method:
-
-```cs
-public class CustomDashboardStorage : IDashboardStorage {
-	IEnumerable<DashboardInfo> IDashboardStorage.GetAvailableDashboardsInfo() {
-		return new[] {
-			new DashboardInfo { ID = "Dashboard", Name = "Dashboard" }
-		};
-	}
-	XDocument IDashboardStorage.LoadDashboard(string dashboardID) {
-		throw new CustomException();
-	}
-	void IDashboardStorage.SaveDashboard(string dashboardID, XDocument dashboard) {
-	}
-}
-```
+1. Handle the `ASPxWebControl.CallbackError` event and specify the callback error message. The displayed text depends on whether the application is in development mode.
+1. To throw an exception when the control loads a dashboard, create custom dashboard storage and override the `LoadDashboard` method.
 
 ## Documentation
 
