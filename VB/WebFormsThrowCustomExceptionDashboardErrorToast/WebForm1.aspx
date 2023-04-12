@@ -1,6 +1,6 @@
 <%@ Page Language="VB" AutoEventWireup="true" CodeBehind="WebForm1.aspx.vb" Inherits="WebFormsThrowCustomExceptionDashboardErrorToast.WebForm1" %>
 
-<%@ Register assembly="DevExpress.Dashboard.v20.1.Web.WebForms, Version=20.1.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.DashboardWeb" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Dashboard.v20.1.Web.WebForms, Version=20.1.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.DashboardWeb" tagprefix="dx" %>
 
 <!DOCTYPE html>
 
